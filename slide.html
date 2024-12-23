@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Image Slideshow</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.slideshow {
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    animation: slide 10s infinite;
+}
+
+.slides img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0%); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0%); }
+}
+
+    </style>
+</head>
+<body>
+    <div class="slideshow">
+        <div class="slides">
+            <img src="https://static.limawaktu.id/media/2023/04/29/gouldian-finch-c-644c7a406eba8.jpg" alt="Image 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEIqYuZi5oecOAo2V1TTPIERwS4gfkUqtAqA&s" alt="Image 2">
+            <img src="https://aws-images-prod.sindonews.net/dyn/600/pena/sindo-article/original/2022/02/15/Bluebird.jpg" alt="Image 3">
+        </div>
+    </div>
+</body>
+</html>
+

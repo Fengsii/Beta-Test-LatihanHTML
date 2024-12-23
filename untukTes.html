@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Drakorin Aja</title>
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="ujicoba.css">
+   <!-- Swiper CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+      * {
+         padding: 0;
+         margin: 0;
+         box-sizing: border-box;
+      }
+      :root {
+         --primary: #a63399;
+         --secondary: #e66b70;
+      }
+      a {
+         text-decoration: none;
+      }
+      li {
+         list-style: none;
+      }
+      body {
+         position: relative;
+         height: 100%;
+         font-family: 'Lato', sans-serif;
+         font-size: 14px;
+         color: #eee;
+         background-color: black;
+         overflow: hidden;
+      }
+      .header {
+         width: 100%;
+         position: absolute;
+         top: 0;
+         left: 0;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         padding: 7px 40px;
+         z-index: 1000;
+      }
+      nav ul {
+         display: flex;
+         gap: 30px;
+      }
+      nav ul li a {
+         color: #eee;
+         text-transform: capitalize;
+         font-size: 12px;
+         letter-spacing: .4px;
+      }
+      nav i {
+         font-size: 16px;
+      }
+      a:hover {
+         color: var(--primary);
+      }
+      .logo img {
+         height: 110px;
+      }
+      .banner {
+         height: 100vh;
+         width: 100%;
+         position: absolute;
+         top: 0;
+         left: 0;
+         bottom: 0;
+      }
+      .swiper {
+         width: 100%;
+         height: 100%;
+      }
+      .swiper-slide {
+         background-color: black;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+      .swiper-slide img {
+         display: block;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+      .content {
+         height: 70vh;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 66px 40px;
+         position: relative;
+      }
+      .content >* {
+         width: 50%;
+         position: relative;
+         height: 100%;
+      }
+      .title {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+      }
+      #title h1 {
+         font-size: 60px;
+         text-transform: uppercase;
+         font-weight: 800;
+      }
+      .sub-title p {
+         font-size: 20px;
+         text-transform: capitalize;
+      }
+      .rating {
+         margin: 50px 0;
+         font-size: 12px;
+      }
+      .rating span {
+         font-size: 18px;
+         font-weight: bold;
+         margin-left: 12px;
+      }
+      .rating i {
+         color: yellow;
+      }
+      .nav-btn {
+         display: flex;
+         gap: 25px;
+      }
+      .swiper-button-prev, .swiper-button-next {
+         position: relative !important;
+         color: #eee !important;
+         height: 20px !important;
+         width: 20px !important;
+         margin: 0 !important;
+         right: unset !important;
+         left: unset !important;
+         top: unset !important;
+      }
+      .swiper-button-next:hover, .swiper-button-prev:hover {
+         color: var(--primary) !important;
+      }
+      .swiper-button-next:after, .swiper-button-prev:after {
+         content: "" !important;
+         font-family: 'Font Awesome 6 Free' !important;
+         font-weight: 600 !important;
+         font-size: 16px !important;
+      }
+      .swiper-pagination-bullet {
+         width: 50px !important;
+         background-color: #eee !important;
+         height: 3px !important;
+         border-radius: 10px !important;
+         margin: 0 3px !important;
+      }
+      .descriotion {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: end;
+      }
+      #desc {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: end;
+         text-align: justify;
+      }
+      #desc p {
+         font-size: 15px;
+         max-width: 300px;
+         line-height: 1.3;
+         margin: 40px 0;
+      }
+      button {
+         font-family: "Lato";
+         background: transparent;
+         border-radius: 24px;
+         border: none;
+         color: #eee;
+         text-transform: uppercase;
+         font-size: 12px !important;
+         cursor: pointer;
+         transition: all .3s;
+      }
+      button >* {
+         margin-right: 10px;
+      }
+      .btn-primary {
+         background-image: linear-gradient(to left, var(--primary), var(--secondary));
+         padding: 14px 26px;
+         transition: all .7s;
+      }
+      .btn-primary:hover {
+         scale: 1.1;
+         background-image: none;
+         border: 2px solid var(--primary);
+         color: var(--primary);
+      }
+      .btn-src {
+         border: 2px solid #eee;
+         padding: 10px 20px;
+         margin-right: 10px;
+      }
+      .btn-src:hover {
+         background-color: rgba(0,0,0,.534);
+         border-color: var(--primary);
+         color: var(--primary);
+      }
+      .thumbsSwiper {
+         box-sizing: border-box;
+         padding: 10px 0;
+         max-width: 100%;
+         overflow: unset !important;
+      }
+      .thumbsSwiper .swiper-sld {
+         width: 25%;
+         height: 100%;
+         opacity: 1;
+         cursor: pointer;
+         padding: 0 10px;
+         background-color: transparent;
+         border-radius: 20px;
+      }
+      .thumbsSwiper .swiper-sld {
+         border-radius: 15px;
+         transition: transform .7s;
+      }
+      .thumbsSwiper .swiper-sld img {
+         border-radius: 15px;
+      }
+      .thumbsSwiper .swiper-sld:hover {
+         transform: translateY(-26px);
+      }
+   </style>
+</head>
+<body>
+   <!-- Overlay -->
+   <header class="header">
+      <div class="logo">
+         <img src="Drakorin-removebg-preview.png" alt="logo">
+      </div>
+      <nav>
+         <ul>
+            <li><a href="#">Trending</a></li>
+            <li><a href="#">Popular</a></li>
+            <li><a href="#">Romance</a></li>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">All</a></li>
+            <li>
+               <a href="#"><i class='bx bx-search'></i></a>
+            </li>
+            <li>
+               <a href="#"><i class='bx bxs-user'></i></a>
+            </li>
+         </ul>
+      </nav>
+   </header>
+
+   <!-- Banner -->
+   <div class="banner">
+      <!-- Add Swiper -->
+      <!-- Slider main container -->
+      <div class="swiper bannerSwiper">
+         <!-- Additional required wrapper -->
+         <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+               <img src="https://d263ao8qih4miy.cloudfront.net/wp-content/uploads/2022/03/BusinessProposal3-4_05.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+               <img src="https://i.pinimg.com/736x/42/ea/0c/42ea0ce63e34f4ed3c2c4d43dcde0562.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+               <img src="https://cdn0-production-images-kly.akamaized.net/bop2D2k07_rOK4M2SXc_PTnDY1Q=/800x450/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4221757/original/067854300_1668070150-06.jpeg" alt="">
+            </div>
+            <div class="swiper-slide">
+               <img src="https://asset-2.tstatic.net/manado/foto/bank/images/Sinopsis-Drama-Korea-Night-Has-Come.jpg" alt="">
+            </div>
+         </div>
+         <!-- If we need pagination -->
+         <div class="swiper-pagination"></div>
+         <!-- If we need navigation buttons -->
+         <div class="swiper-button-prev"></div>
+         <div class="swiper-button-next"></div>
+      </div>
+   </div>
+
+   <!-- Content -->
+   <div class="content">
+      <div class="title">
+         <div class="sub-title">
+            <p>Now Streaming</p>
+         </div>
+         <div id="title">
+            <h1>Business Proposal</h1>
+         </div>
+         <div class="rating">
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <span>9.9</span>
+         </div>
+         <div class="nav-btn">
+            <button class="btn-src"><i class='bx bx-play'></i> Watch Now</button>
+            <button class="btn-primary"><i class='bx bxs-share'></i> Share</button>
+         </div>
+      </div>
+      <div class="descriotion">
+         <div id="desc">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, voluptas tempora? Dolor, consequatur? Ipsa enim at aliquam, fugiat voluptate, consectetur autem, eos porro impedit suscipit nostrum delectus earum dolor sapiente?</p>
+         </div>
+      </div>
+   </div>
+
+   <!-- Swiper JS -->
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+   <!-- Initialize Swiper -->
+   <script>
+      var bannerSwiper = new Swiper('.bannerSwiper', {
+         loop: true,
+         pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+         },
+         navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+         },
+         spaceBetween: 0,
+         centeredSlides: true,
+         slidesPerView: 1,
+         effect: 'fade',
+         fadeEffect: {
+            crossFade: true
+         }
+      });
+
+      var thumbsSwiper = new Swiper('.thumbsSwiper', {
+         slidesPerView: 4,
+         freeMode: true,
+         watchSlidesProgress: true,
+         spaceBetween: 10,
+      });
+
+      var mainSwiper = new Swiper('.mainSwiper', {
+         loop: true,
+         spaceBetween: 10,
+         navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+         },
+         thumbs: {
+            swiper: thumbsSwiper,
+         },
+      });
+   </script>
+</body>
+</html>

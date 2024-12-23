@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>EFENGSI DOM</title>
+</head>
+<body>
+   <h1>Data Mahasiswa :</h1>
+   <div class="container"></div>
+   <script>
+      let mahasiswa = {
+         nama: "Ahmand Santoso",
+         nim : "12345678",
+         jurusan: "Teknik Informatika",
+         angkatan: 2021
+      };
+
+      const container = document.querySelector(".container");
+
+      const name = document.createElement("p");
+      name.textContent = "Nama: " + mahasiswa.nama;
+      container.appendChild(name);
+
+      const nim = document.createElement("p");
+      nim.textContent = "NIM: " + mahasiswa.nim;
+      container.appendChild(nim);
+
+      const jurusan = document.createElement("p");
+      jurusan.textContent = "Jurusan: " + mahasiswa.jurusan;
+      container.appendChild(jurusan);
+
+      const angkatan = document.createElement("p");
+      angkatan.textContent = "Angkatan: " + mahasiswa.angkatan;
+      container.appendChild(angkatan);
+      
+   </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+
+
+   <div id="kotak"></div>
+
+   <button onclick="apa()">Klik</button>
+   <button ondblclick="apa()">Klik 2 kali</button>
+
+   <script>
+      let angka = document.createElement("p");
+      angka.textContent = "Apakabar Hari Ini..";
+      document.getElementById("kotak").appendChild(angka);
+      angka.style.backgroundColor = "green";
+
+      let box = document.createElement("div");
+      box.textContent = "HUHU";
+      document.getElementById("kotak").appendChild(box);
+      box.style.width = "150px";
+      box.style.height = "150px";
+      box.style.border = "1px solid black"
+
+      let box2 = document.createElement("div");
+      box2.textContent = "HandPhone Di Tahan:).."
+      document.getElementById("kotak").appendChild(box2);
+      box2.style.border = "1px solid blue";
+      box2.style.backgroundColor = "yellow";
+      box2.style.height = "150px";
+      box2.style.width = "150px";
+
+      function apa(){
+         alert("Tombol di tekan");
+      }
+
+   </script>
+
+
+</body>
+</html>
